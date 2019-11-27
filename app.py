@@ -109,7 +109,7 @@ def map():
                                       is_apartment, time_to_metro, floor_last, floor_first, X, Y]
     # Data
     price = 0
-    data = pd.read_csv(SETTINGS.DATA)
+    data = pd.read_csv(SETTINGS.DATA + '/COORDINATES_Pred_Term.csv')
 
     if full_sq < float(data.full_sq.quantile(0.1)):
         print('0')
@@ -143,7 +143,7 @@ def map():
                                      floor_last, floor_first, X, Y]
     term = 0
     # Data
-    data = pd.read_csv(SETTINGS.DATA)
+    data = pd.read_csv(SETTINGS.DATA + '/COORDINATES_Pred_Term.csv')
     data['price_meter_sq'] = data[['price', 'full_sq']].apply(
         lambda row: (row['price'] /
                      row['full_sq']), axis=1)
