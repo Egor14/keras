@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from joblib import dump, load
 import keras
 import pandas as pd
@@ -84,8 +84,8 @@ def func_pred_term2(params: list):
     return y_pred
 
 @app.route('/')
-def main():
-   return 'Hi :)'
+def hello_world():
+    return render_template('index.html')
 
 
 @app.route('/map')
